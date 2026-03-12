@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full-Mind 🧘 Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #171a21;
+      --text: #e9edf5;
+      --muted: #aab4c6;
+      --line: #2a3140;
+      --accent: #7dc5ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 15% -10%, #1a2130 0%, var(--bg) 45%), var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    header {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(125,197,255,0.09), rgba(125,197,255,0.02));
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+      letter-spacing: 0.2px;
+    }
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .note {
+      margin-top: 10px;
+      color: #c5cfde;
+      font-size: 0.92rem;
+    }
+    section {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 18px 18px 14px;
+      margin: 12px 0;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.06rem;
+      color: #f6f9ff;
+    }
+    p {
+      margin: 0 0 10px;
+      color: #d6deeb;
+    }
+    ul {
+      margin: 0 0 10px 20px;
+      padding: 0;
+      color: #d6deeb;
+    }
+    li { margin: 0 0 6px; }
+    a { color: var(--accent); }
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Full-Mind 🧘 Privacy Policy</h1>
+      <p class="sub">Last updated: March 12, 2026</p>
+      <p class="note">This policy describes how Full-Mind 🧘 handles information when you use meditation playback, scene/voice sharing, and Bluetooth device integration features.</p>
+    </header>
+
+    <section>
+      <h2>1. Scope</h2>
+      <p>This Privacy Policy applies to the Full-Mind 🧘 Android application and its in-app features, including meditation sessions, scene and voice presets, QR-based sharing, and PandaZen Bluetooth device controls (including LMD devices).</p>
+    </section>
+
+    <section>
+      <h2>2. Information We Process</h2>
+      <ul>
+        <li><strong>App-specific user identifier:</strong> Full-Mind 🧘 may generate and store a local UUID to support scene sharing and synchronization workflows.</li>
+        <li><strong>Creator profile data:</strong> If you choose to share scenes publicly, you may provide a creator name that can be published with shared content.</li>
+        <li><strong>Preset and scene content:</strong> Scene/voice JSON may include names, tags, visual metadata, audio references, and routing metadata.</li>
+        <li><strong>Usage and interaction counters:</strong> The app can process counters such as views, QR scans, likes, bookmarks, shares, total sessions, and total session duration for shared items.</li>
+        <li><strong>Bluetooth/LMD data:</strong> Device discovery status, pairing state, device address (last paired address), wearable status, and LMD settings are processed for PandaZen hardware integration.</li>
+        <li><strong>Image processing for QR:</strong> Images selected for QR overlays are processed locally on device; the source image itself is not uploaded by the app as part of QR generation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How We Use Information</h2>
+      <ul>
+        <li>To provide meditation playback, breathing cues, and dynamic scene rendering.</li>
+        <li>To save app preferences, preset configurations, and session state.</li>
+        <li>To publish and retrieve community scenes/voices through cloud endpoints when you request sharing/loading.</li>
+        <li>To pair and communicate with supported Bluetooth devices and synchronize session state.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Data Storage and Retention</h2>
+      <ul>
+        <li><strong>Local storage:</strong> App settings and preset data are stored in app-private storage (for example SharedPreferences and private files).</li>
+        <li><strong>LMD settings file:</strong> Device settings are stored locally in an app-private file.</li>
+        <li><strong>Cache and gallery output:</strong> QR share images may be written to app cache for sharing; images are saved to gallery only when you explicitly choose Save.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Sharing and Disclosure</h2>
+      <ul>
+        <li>When you choose to share content, relevant preset metadata is sent to Supabase-backed services used by Full-Mind 🧘.</li>
+        <li>Public shared entries may include creator name, tags, content metadata, and aggregate counters.</li>
+        <li>Full-Mind 🧘 does not sell personal data and does not include advertising SDKs in the current app implementation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Permissions Used by the App</h2>
+      <ul>
+        <li><strong>Bluetooth permissions:</strong> For BLE scanning, pairing, and communication with PandaZen devices (including LMD devices).</li>
+        <li><strong>Location permission (older Android):</strong> Required by certain Android versions for BLE scanning behavior.</li>
+        <li><strong>Internet permission:</strong> Required for cloud features such as scene/voice upload, fetch, and metric updates.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Security</h2>
+      <p>Full-Mind 🧘 uses reasonable safeguards suitable for mobile apps, including app-private storage and secure transport where supported by service endpoints (for example HTTPS). No platform can guarantee absolute security.</p>
+      <p>Please do not include sensitive personal information in creator names, scene names, tags, or shared metadata.</p>
+    </section>
+
+    <section>
+      <h2>8. Your Choices</h2>
+      <ul>
+        <li>You can use core meditation features without publishing content.</li>
+        <li>You can edit or clear your local creator name.</li>
+        <li>You can disconnect/forget Bluetooth devices in app settings.</li>
+        <li>You can delete local presets stored on your device.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>9. Children’s Privacy</h2>
+      <p>Full-Mind 🧘 is not designed as a dedicated service for children under 13. Please do not submit children’s personal information through shared content fields.</p>
+    </section>
+
+    <section>
+      <h2>10. Policy Updates</h2>
+      <p>We may revise this Privacy Policy as app features evolve. The “Last updated” date at the top of this page reflects the latest version.</p>
+    </section>
+
+    <section>
+      <h2>11. Contact</h2>
+      <p>For privacy-related questions or requests, please contact the PandaZen support channel associated with your app distribution.</p>
+    </section>
+
+    <footer>
+      Full-Mind 🧘 Privacy Policy<br />
+      &copy; PandaZen
+    </footer>
+  </main>
+</body>
+</html>
