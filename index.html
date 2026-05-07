@@ -3,179 +3,474 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Full-Mind 🧘 Privacy Policy</title>
+  <title>FullMind: Sleep &amp; Meditation Privacy Policy</title>
   <style>
     :root {
-      --bg: #0f1115;
-      --card: #171a21;
-      --text: #e9edf5;
-      --muted: #aab4c6;
-      --line: #2a3140;
-      --accent: #7dc5ff;
+      --bg: #070b09;
+      --panel: rgba(15, 24, 20, 0.94);
+      --card: rgba(255, 255, 255, 0.055);
+      --text: #edf6f1;
+      --muted: #a9bbb2;
+      --soft: #d8e3dd;
+      --accent: #00ff88;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 15% -10%, #1a2130 0%, var(--bg) 45%), var(--bg);
+      min-height: 100vh;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(0, 255, 136, 0.14), transparent 34%),
+        linear-gradient(180deg, #08100c 0%, var(--bg) 100%);
       line-height: 1.65;
     }
+
+    body.loading {
+      overflow: hidden;
+    }
+
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #0d241c 0%, #050806 70%);
+      transition: opacity 520ms ease, visibility 520ms ease;
+    }
+
+    .splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .splash-inner {
+      width: min(62vw, 360px);
+      height: min(62vw, 360px);
+      filter: drop-shadow(0 28px 70px rgba(0, 255, 136, 0.16));
+    }
+
+    .splash-fallback {
+      position: absolute;
+      display: none;
+      place-items: center;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .splash.show-fallback .splash-fallback {
+      display: grid;
+    }
+
+    .splash.has-lottie .splash-fallback {
+      display: none;
+    }
+
+    .splash-mark {
+      width: min(34vw, 154px);
+      height: min(34vw, 154px);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 45% 35%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.22) 34%, transparent 35%),
+        radial-gradient(circle, rgba(0, 255, 136, 0.28), rgba(0, 255, 136, 0.08) 62%, transparent 64%);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      box-shadow:
+        0 0 0 0 rgba(0, 255, 136, 0.24),
+        0 28px 80px rgba(0, 0, 0, 0.32);
+      animation: splashPulse 1800ms ease-in-out infinite;
+    }
+
+    .splash-mark::after {
+      content: "FM";
+      color: #05110d;
+      font-weight: 800;
+      font-size: clamp(30px, 7vw, 58px);
+      letter-spacing: 0;
+    }
+
+    .splash-name {
+      color: #ecf8f2;
+      font-weight: 800;
+      font-size: clamp(28px, 7vw, 54px);
+      line-height: 1;
+    }
+
+    .splash-byline {
+      color: rgba(236, 248, 242, 0.64);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    @keyframes splashPulse {
+      0%, 100% {
+        transform: scale(0.96);
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.22), 0 28px 80px rgba(0, 0, 0, 0.32);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 22px rgba(0, 255, 136, 0), 0 34px 92px rgba(0, 0, 0, 0.38);
+      }
+    }
+
     .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
+      width: min(980px, calc(100% - 32px));
+      margin: 42px auto 64px;
     }
-    header {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(125,197,255,0.09), rgba(125,197,255,0.02));
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(1.7rem, 2.5vw, 2.3rem);
-      letter-spacing: 0.2px;
-    }
-    .sub {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-    .note {
-      margin-top: 10px;
-      color: #c5cfde;
-      font-size: 0.92rem;
-    }
+
+    .hero,
+    .index,
     section {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--card);
-      padding: 18px 18px 14px;
-      margin: 12px 0;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
+
+    .hero {
+      padding: 30px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(0, 255, 136, 0.12);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(0, 255, 136, 0.75);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+    }
+
     h2 {
-      margin: 0 0 10px;
-      font-size: 1.06rem;
-      color: #f6f9ff;
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-size: 20px;
+      line-height: 1.25;
     }
+
+    p,
+    li {
+      color: var(--soft);
+      font-size: 16px;
+    }
+
     p {
       margin: 0 0 10px;
-      color: #d6deeb;
     }
-    ul {
-      margin: 0 0 10px 20px;
-      padding: 0;
-      color: #d6deeb;
-    }
-    li { margin: 0 0 6px; }
-    a { color: var(--accent); }
-    footer {
-      margin-top: 22px;
+
+    .meta,
+    .note {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 14px;
+    }
+
+    .note {
+      max-width: 760px;
+      margin-top: 14px;
+    }
+
+    .index {
+      padding: 20px;
+      margin: 18px 0;
+    }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .index a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 14px;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .index a:hover {
+      border-color: rgba(0, 255, 136, 0.5);
+      color: var(--accent);
+    }
+
+    section {
+      padding: 22px;
+      margin: 14px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 10px;
+      background: rgba(0, 255, 136, 0.13);
+      border: 1px solid rgba(0, 255, 136, 0.22);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 14px;
       text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        width: min(100% - 20px, 980px);
+        margin: 20px auto 42px;
+      }
+
+      .hero,
+      .index,
+      section {
+        border-radius: 18px;
+      }
+
+      .hero,
+      section {
+        padding: 20px;
+      }
+
+      .index-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
+<body class="loading">
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-inner" id="splash-lottie"></div>
+    <div class="splash-fallback">
+      <div class="splash-mark"></div>
+      <div>
+        <div class="splash-name">FullMind</div>
+        <div class="splash-byline">By PandaZen</div>
+      </div>
+    </div>
+  </div>
+
   <main class="wrap">
-    <header>
-      <h1>Full-Mind 🧘 Privacy Policy</h1>
-      <p class="sub">Last updated: March 12, 2026</p>
-      <p class="note">This policy describes how Full-Mind 🧘 handles information when you use meditation playback, scene/voice sharing, and Bluetooth device integration features.</p>
+    <header class="hero">
+      <span class="eyebrow">PandaZen</span>
+      <h1>FullMind: Sleep &amp; Meditation Privacy Policy</h1>
+      <p class="meta">Last updated: May 8, 2026</p>
+      <p class="note">A clear guide to what the app uses, what stays on your device, what goes to app services, and how creator and device features work.</p>
     </header>
 
-    <section>
-      <h2>1. Scope</h2>
-      <p>This Privacy Policy applies to the Full-Mind 🧘 Android application and its in-app features, including meditation sessions, scene and voice presets, QR-based sharing, and PandaZen Bluetooth device controls (including LMD devices).</p>
+    <nav class="index" aria-label="Privacy policy index">
+      <h2>Index</h2>
+      <div class="index-grid">
+        <a href="#overview">Overview</a>
+        <a href="#account">Account and Profile</a>
+        <a href="#activity">Meditation and App Activity</a>
+        <a href="#cloud">Cloud, Community, and Sharing</a>
+        <a href="#premium">Payments and Premium</a>
+        <a href="#bluetooth">Bluetooth and Nearby Devices</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#choices">Your Choices</a>
+        <a href="#security">Security</a>
+        <a href="#children">Children</a>
+        <a href="#creator">Creator Policy</a>
+        <a href="#contact">Changes and Contact</a>
+      </div>
+    </nav>
+
+    <section id="overview">
+      <div class="section-title"><span class="mark"></span><h2>Overview</h2></div>
+      <p>FullMind: Sleep &amp; Meditation is designed for meditation, sleep, soundscapes, visuals, creator tools, and optional device features. This policy explains what information is used, why it is used, and what choices you have.</p>
+      <p>Most settings stay on your device. Cloud features are used when you sign in, share, sync, subscribe, or use community features. Bluetooth is used only for supported PandaZen devices.</p>
     </section>
 
-    <section>
-      <h2>2. Information We Process</h2>
+    <section id="account">
+      <div class="section-title"><span class="mark"></span><h2>Account and Profile</h2></div>
       <ul>
-        <li><strong>App-specific user identifier:</strong> Full-Mind 🧘 may generate and store a local UUID to support scene sharing and synchronization workflows.</li>
-        <li><strong>Creator profile data:</strong> If you choose to share scenes publicly, you may provide a creator name that can be published with shared content.</li>
-        <li><strong>Preset and scene content:</strong> Scene/voice JSON may include names, tags, visual metadata, audio references, and routing metadata.</li>
-        <li><strong>Usage and interaction counters:</strong> The app can process counters such as views, QR scans, likes, bookmarks, shares, total sessions, and total session duration for shared items.</li>
-        <li><strong>Bluetooth/LMD data:</strong> Device discovery status, pairing state, device address (last paired address), wearable status, and LMD settings are processed for PandaZen hardware integration.</li>
-        <li><strong>Image processing for QR:</strong> Images selected for QR overlays are processed locally on device; the source image itself is not uploaded by the app as part of QR generation.</li>
+        <li>You can sign in with Google so your profile stays connected to you and account-based features can work.</li>
+        <li>The app may create a monk profile name for you. You can keep it, update it, or stay anonymous where the app allows.</li>
+        <li>If you share creator content, your chosen creator name may appear with that content.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>3. How We Use Information</h2>
+    <section id="activity">
+      <div class="section-title"><span class="mark"></span><h2>Meditation and App Activity</h2></div>
       <ul>
-        <li>To provide meditation playback, breathing cues, and dynamic scene rendering.</li>
-        <li>To save app preferences, preset configurations, and session state.</li>
-        <li>To publish and retrieve community scenes/voices through cloud endpoints when you request sharing/loading.</li>
-        <li>To pair and communicate with supported Bluetooth devices and synchronize session state.</li>
+        <li>The app may save session history, selected sounds, visual quality, preferences, completed sessions, and similar app activity so your experience feels consistent when you return.</li>
+        <li>We may use simple usage information, such as session starts, pauses, completions, screen views, ratings, likes, and feature requests, to understand what is working and improve the app.</li>
+        <li>Please do not place sensitive personal details inside scene names, feature requests, creator names, tags, or public descriptions.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>4. Data Storage and Retention</h2>
+    <section id="cloud">
+      <div class="section-title"><span class="mark"></span><h2>Cloud, Community, and Sharing</h2></div>
       <ul>
-        <li><strong>Local storage:</strong> App settings and preset data are stored in app-private storage (for example SharedPreferences and private files).</li>
-        <li><strong>LMD settings file:</strong> Device settings are stored locally in an app-private file.</li>
-        <li><strong>Cache and gallery output:</strong> QR share images may be written to app cache for sharing; images are saved to gallery only when you explicitly choose Save.</li>
+        <li>When you publish or load community scenes, voices, QR links, or shared content, the app uses secure app services to store and retrieve that content.</li>
+        <li>Shared content can include the creator name you chose, scene or voice names, tags, descriptions, artwork references, usage counts, likes, bookmarks, and similar public or community-facing details.</li>
+        <li>Images used for QR styling are handled on your device for that flow. A final share image is saved or shared only when you choose to do that.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>5. Sharing and Disclosure</h2>
+    <section id="premium">
+      <div class="section-title"><span class="mark"></span><h2>Payments and Premium</h2></div>
       <ul>
-        <li>When you choose to share content, relevant preset metadata is sent to Supabase-backed services used by Full-Mind 🧘.</li>
-        <li>Public shared entries may include creator name, tags, content metadata, and aggregate counters.</li>
-        <li>Full-Mind 🧘 does not sell personal data and does not include advertising SDKs in the current app implementation.</li>
+        <li>Premium plans and trials are handled through Google Play Billing. Google processes payment details.</li>
+        <li>The app receives purchase status so it can unlock or restore premium features.</li>
+        <li>We may keep plan status, trial status, and purchase-related app records so premium access works across sessions.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>6. Permissions Used by the App</h2>
+    <section id="bluetooth">
+      <div class="section-title"><span class="mark"></span><h2>Bluetooth and Nearby Devices</h2></div>
       <ul>
-        <li><strong>Bluetooth permissions:</strong> For BLE scanning, pairing, and communication with PandaZen devices (including LMD devices).</li>
-        <li><strong>Location permission (older Android):</strong> Required by certain Android versions for BLE scanning behavior.</li>
-        <li><strong>Internet permission:</strong> Required for cloud features such as scene/voice upload, fetch, and metric updates.</li>
+        <li>Bluetooth is used only when you use supported PandaZen device features, such as pairing, reconnecting, sending session cues, or changing device settings.</li>
+        <li>The app may remember a previously paired device so reconnecting feels effortless. You can disconnect or forget a device from app settings.</li>
+        <li>On some Android versions, the system requires location permission for Bluetooth scanning. The app uses that permission for device discovery, not to track where you are.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>7. Security</h2>
-      <p>Full-Mind 🧘 uses reasonable safeguards suitable for mobile apps, including app-private storage and secure transport where supported by service endpoints (for example HTTPS). No platform can guarantee absolute security.</p>
-      <p>Please do not include sensitive personal information in creator names, scene names, tags, or shared metadata.</p>
-    </section>
-
-    <section>
-      <h2>8. Your Choices</h2>
+    <section id="permissions">
+      <div class="section-title"><span class="mark"></span><h2>Permissions</h2></div>
       <ul>
-        <li>You can use core meditation features without publishing content.</li>
-        <li>You can edit or clear your local creator name.</li>
-        <li>You can disconnect/forget Bluetooth devices in app settings.</li>
-        <li>You can delete local presets stored on your device.</li>
+        <li>Internet access is used for sign-in, community content, sync, billing status, feature requests, and app services.</li>
+        <li>Bluetooth permissions are used for nearby supported devices when you choose to use those features.</li>
+        <li>Storage or gallery actions happen when you choose to save or share generated images.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>9. Children’s Privacy</h2>
-      <p>Full-Mind 🧘 is not designed as a dedicated service for children under 13. Please do not submit children’s personal information through shared content fields.</p>
+    <section id="choices">
+      <div class="section-title"><span class="mark"></span><h2>Your Choices</h2></div>
+      <ul>
+        <li>You can use core meditation features without publishing creator content.</li>
+        <li>You can edit your monk profile name, avoid sharing public content, disconnect Bluetooth devices, and remove local presets or settings from inside the app where those controls are available.</li>
+        <li>You can uninstall the app to remove its local app data from your device. Some cloud records may remain when they are needed for account, billing, creator, safety, or service records.</li>
+      </ul>
     </section>
 
-    <section>
-      <h2>10. Policy Updates</h2>
-      <p>We may revise this Privacy Policy as app features evolve. The “Last updated” date at the top of this page reflects the latest version.</p>
+    <section id="security">
+      <div class="section-title"><span class="mark"></span><h2>Security</h2></div>
+      <p>We use reasonable safeguards for a mobile app, including private app storage on your device and secure connections for app services where supported.</p>
+      <p>No app or online service can promise perfect security, so please avoid sharing sensitive personal information in public or creator-facing fields.</p>
     </section>
 
-    <section>
-      <h2>11. Contact</h2>
-      <p>For privacy-related questions or requests, please contact the PandaZen support channel associated with your app distribution.</p>
+    <section id="children">
+      <div class="section-title"><span class="mark"></span><h2>Children</h2></div>
+      <p>FullMind: Sleep &amp; Meditation is not made as a dedicated app for children under 13. Please do not submit children's personal information through creator names, scene descriptions, tags, or feature requests.</p>
+    </section>
+
+    <section id="creator">
+      <div class="section-title"><span class="mark"></span><h2>Creator Policy</h2></div>
+      <ul>
+        <li>If you create, upload, publish, or share scenes, voices, images, names, tags, or descriptions, you are responsible for making sure you have the right to use and share that content.</li>
+        <li>Creator content may be shown to other users with your creator name, public metadata, popularity signals, session counts, likes, bookmarks, and similar activity.</li>
+        <li>We may review, hide, remove, limit, or update creator content if it appears unsafe, misleading, infringing, abusive, spammy, or harmful to the app experience.</li>
+        <li>Creator features may record how content performs so we can rank content, support creator tools, improve discovery, and build future rewards or monetization features.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><span class="mark"></span><h2>Changes and Contact</h2></div>
+      <p>We may update this policy as the app grows. The date at the top shows the latest version.</p>
+      <p>For privacy questions or requests, use the support or feedback options provided by FullMind: Sleep &amp; Meditation or PandaZen.</p>
     </section>
 
     <footer>
-      Full-Mind 🧘 Privacy Policy<br />
-      &copy; PandaZen
+      FullMind: Sleep &amp; Meditation Privacy Policy<br />
+      PandaZen
     </footer>
   </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script>
+    const splash = document.getElementById("splash");
+    const finishSplash = () => {
+      splash.classList.add("hidden");
+      document.body.classList.remove("loading");
+    };
+    const fallbackTimer = setTimeout(() => {
+      if (!splash.classList.contains("has-lottie")) {
+        splash.classList.add("show-fallback");
+      }
+    }, 650);
+
+    if (window.lottie) {
+      const animation = window.lottie.loadAnimation({
+        container: document.getElementById("splash-lottie"),
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        path: "FullMind_Splash_Lottie.json"
+      });
+      animation.addEventListener("data_ready", () => {
+        clearTimeout(fallbackTimer);
+        splash.classList.add("has-lottie");
+        splash.classList.remove("show-fallback");
+      });
+      animation.addEventListener("data_failed", () => splash.classList.remove("has-lottie"));
+      animation.addEventListener("complete", finishSplash);
+      setTimeout(finishSplash, 5200);
+    } else {
+      setTimeout(finishSplash, 2200);
+    }
+  </script>
 </body>
 </html>
