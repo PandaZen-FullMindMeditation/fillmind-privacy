@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FullMind: Sleep &amp; Meditation Privacy Policy</title>
+  <title>FullMind Privacy Policy</title>
   <style>
     :root {
-      --bg: #070b09;
-      --panel: rgba(15, 24, 20, 0.94);
+      --bg: #040706;
+      --bg-soft: #09100d;
+      --panel: rgba(14, 19, 17, 0.92);
+      --panel-strong: rgba(11, 15, 13, 0.97);
       --card: rgba(255, 255, 255, 0.055);
-      --text: #edf6f1;
-      --muted: #a9bbb2;
-      --soft: #d8e3dd;
+      --text: #eef7f2;
+      --muted: #98aaa2;
+      --soft: #dbe6e0;
       --accent: #00ff88;
-      --border: rgba(255, 255, 255, 0.1);
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+      --accent-soft: rgba(0, 255, 136, 0.14);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+      --radius: 28px;
     }
 
     * {
@@ -28,12 +32,13 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-family: "SF Pro Display", "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(0, 255, 136, 0.14), transparent 34%),
-        linear-gradient(180deg, #08100c 0%, var(--bg) 100%);
-      line-height: 1.65;
+        radial-gradient(circle at top left, rgba(0, 255, 136, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(83, 167, 255, 0.08), transparent 20%),
+        linear-gradient(180deg, #07100c 0%, var(--bg) 100%);
+      line-height: 1.68;
     }
 
     body.loading {
@@ -47,7 +52,7 @@
       display: grid;
       place-items: center;
       min-height: 100vh;
-      background: radial-gradient(circle at center, #0d241c 0%, #050806 70%);
+      background: radial-gradient(circle at center, #0d241c 0%, #040706 72%);
       transition: opacity 520ms ease, visibility 520ms ease;
     }
 
@@ -128,8 +133,8 @@
     }
 
     .wrap {
-      width: min(980px, calc(100% - 32px));
-      margin: 42px auto 64px;
+      width: min(1080px, calc(100% - 32px));
+      margin: 40px auto 72px;
     }
 
     .hero,
@@ -137,14 +142,17 @@
     section {
       border: 1px solid var(--border);
       background: var(--panel);
-      border-radius: 24px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
 
     .hero {
-      padding: 30px;
+      padding: 32px;
       margin-bottom: 18px;
+      background:
+        radial-gradient(circle at top right, rgba(0, 255, 136, 0.08), transparent 28%),
+        linear-gradient(180deg, rgba(16, 26, 22, 0.96), rgba(11, 16, 14, 0.96));
     }
 
     .eyebrow {
@@ -153,7 +161,7 @@
       gap: 8px;
       padding: 8px 13px;
       border-radius: 999px;
-      background: rgba(0, 255, 136, 0.12);
+      background: var(--accent-soft);
       color: var(--accent);
       font-size: 13px;
       font-weight: 700;
@@ -171,15 +179,17 @@
     }
 
     h1 {
-      margin: 18px 0 8px;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.08;
+      margin: 18px 0 10px;
+      font-size: clamp(34px, 4.8vw, 56px);
+      line-height: 1.03;
+      font-weight: 800;
+      letter-spacing: -0.03em;
     }
 
     h2 {
-      margin: 0 0 12px;
+      margin: 0;
       color: #ffffff;
-      font-size: 20px;
+      font-size: 22px;
       line-height: 1.25;
     }
 
@@ -190,11 +200,12 @@
     }
 
     p {
-      margin: 0 0 10px;
+      margin: 0 0 11px;
     }
 
     .meta,
-    .note {
+    .note,
+    .url-copy {
       color: var(--muted);
       font-size: 14px;
     }
@@ -204,8 +215,66 @@
       margin-top: 14px;
     }
 
-    .index {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+      gap: 18px;
+      align-items: end;
+      margin-top: 24px;
+    }
+
+    .hero-card {
       padding: 20px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .button-primary {
+      color: #04100b;
+      background: var(--accent);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .index {
+      padding: 22px;
       margin: 18px 0;
     }
 
@@ -213,13 +282,13 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .index a {
       display: block;
-      padding: 11px 12px;
-      border-radius: 14px;
+      padding: 12px 13px;
+      border-radius: 16px;
       color: var(--text);
       text-decoration: none;
       background: rgba(255, 255, 255, 0.055);
@@ -227,26 +296,27 @@
     }
 
     .index a:hover {
-      border-color: rgba(0, 255, 136, 0.5);
+      border-color: rgba(0, 255, 136, 0.44);
       color: var(--accent);
     }
 
     section {
-      padding: 22px;
+      padding: 24px;
       margin: 14px 0;
+      background: var(--panel-strong);
     }
 
     .section-title {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 11px;
       background: rgba(0, 255, 136, 0.13);
       border: 1px solid rgba(0, 255, 136, 0.22);
       position: relative;
@@ -259,43 +329,47 @@
       inset: 8px;
       border-radius: 999px;
       background: var(--accent);
+      box-shadow: 0 0 18px rgba(0, 255, 136, 0.55);
     }
 
     ul {
       margin: 0;
-      padding-left: 20px;
+      padding-left: 18px;
     }
 
-    li {
-      margin-bottom: 8px;
+    li + li {
+      margin-top: 8px;
     }
 
     footer {
-      margin-top: 24px;
+      padding: 18px 6px 0;
       color: var(--muted);
-      font-size: 14px;
       text-align: center;
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 840px) {
+      .hero-grid,
+      .index-grid {
+        grid-template-columns: 1fr;
+      }
+
       .wrap {
-        width: min(100% - 20px, 980px);
-        margin: 20px auto 42px;
+        width: min(100%, calc(100% - 20px));
+        margin-top: 22px;
       }
 
       .hero,
       .index,
       section {
-        border-radius: 18px;
+        border-radius: 22px;
       }
 
       .hero,
+      .index,
       section {
-        padding: 20px;
-      }
-
-      .index-grid {
-        grid-template-columns: 1fr;
+        padding-left: 18px;
+        padding-right: 18px;
       }
     }
   </style>
@@ -315,130 +389,150 @@
   <main class="wrap">
     <header class="hero">
       <span class="eyebrow">PandaZen</span>
-      <h1>FullMind: Sleep &amp; Meditation Privacy Policy</h1>
-      <p class="meta">Last updated: May 8, 2026</p>
-      <p class="note">A clear guide to what the app uses, what stays on your device, what goes to app services, and how creator and device features work.</p>
+      <h1>FullMind Privacy Policy</h1>
+      <p class="meta">Effective date: July 8, 2026</p>
+      <p class="note">This page is intended to match the current Apple-app legal surface for FullMind on iPhone, iPad, and compatible Mac installs that run the iPad version.</p>
+
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>What this policy covers</h3>
+          <p>FullMind combines local meditation playback with optional cloud-backed features like sign-in, Premium sync, analytics, community browsing, creator interest flows, issue reporting, and ad-supported surfaces for eligible users.</p>
+        </div>
+
+        <div class="hero-card">
+          <h3>Canonical hosted URL</h3>
+          <p class="url-copy">https://fullmind.app/privacy</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://fullmind.app/privacy">Open canonical path</a>
+            <a class="button button-secondary" href="../git-tos/">View Terms</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <nav class="index" aria-label="Privacy policy index">
       <h2>Index</h2>
       <div class="index-grid">
         <a href="#overview">Overview</a>
-        <a href="#account">Account and Profile</a>
-        <a href="#activity">Meditation and App Activity</a>
-        <a href="#cloud">Cloud, Community, and Sharing</a>
-        <a href="#premium">Payments and Premium</a>
-        <a href="#bluetooth">Bluetooth and Nearby Devices</a>
-        <a href="#permissions">Permissions</a>
+        <a href="#information">Information We Process</a>
+        <a href="#use">How We Use Information</a>
+        <a href="#providers">Service Providers</a>
+        <a href="#ads">Ads and Identifiers</a>
+        <a href="#local">Local Storage</a>
+        <a href="#premium">Premium and Billing</a>
+        <a href="#community">Community and Submissions</a>
         <a href="#choices">Your Choices</a>
-        <a href="#security">Security</a>
+        <a href="#security">Security and Retention</a>
         <a href="#children">Children</a>
-        <a href="#creator">Creator Policy</a>
-        <a href="#contact">Changes and Contact</a>
+        <a href="#changes">Changes and Contact</a>
       </div>
     </nav>
 
     <section id="overview">
       <div class="section-title"><span class="mark"></span><h2>Overview</h2></div>
-      <p>FullMind: Sleep &amp; Meditation is designed for meditation, sleep, soundscapes, visuals, creator tools, and optional device features. This policy explains what information is used, why it is used, and what choices you have.</p>
-      <p>Most settings stay on your device. Cloud features are used when you sign in, share, sync, subscribe, or use community features. Bluetooth is used only for supported PandaZen devices.</p>
+      <p>This Privacy Policy applies to FullMind on Apple platforms, including iPhone, iPad, and compatible Mac installs that run the iPad version.</p>
+      <p>FullMind combines local meditation playback with optional cloud-backed features such as sign-in, Premium entitlement sync, creator interest flows, community browsing, issue reports, and analytics.</p>
     </section>
 
-    <section id="account">
-      <div class="section-title"><span class="mark"></span><h2>Account and Profile</h2></div>
+    <section id="information">
+      <div class="section-title"><span class="mark"></span><h2>Information We Process</h2></div>
+      <p>Depending on how you use the app, FullMind may process account identity, profile fields, entitlement state, session activity, issue reports, feature requests, community content metadata, diagnostics, and performance signals.</p>
       <ul>
-        <li>You can sign in with Google so your profile stays connected to you and account-based features can work.</li>
-        <li>The app may create a monk profile name for you. You can keep it, update it, or stay anonymous where the app allows.</li>
-        <li>If you share creator content, your chosen creator name may appear with that content.</li>
+        <li>Sign-in data such as your Apple or Google account identity, email address, display name, and authenticated user identifier.</li>
+        <li>Profile and access state such as monk name, Premium entitlement, legacy trial status, and related access records.</li>
+        <li>Meditation usage such as selected scenes, mixer state, session start, pause, resume, completion, like prompts, and local history buckets.</li>
+        <li>Community and feedback data such as shared scene metadata, shared voice metadata, likes, bookmarks, view counters, issue reports, and feature suggestions.</li>
+        <li>Technical data such as crash traces, performance traces, screen analytics, device-side identifiers exposed to integrated SDKs, and ad request context for eligible users.</li>
       </ul>
     </section>
 
-    <section id="activity">
-      <div class="section-title"><span class="mark"></span><h2>Meditation and App Activity</h2></div>
+    <section id="use">
+      <div class="section-title"><span class="mark"></span><h2>How We Use Information</h2></div>
+      <p>We use information to run meditation playback, restore your saved experience, sync access, troubleshoot issues, measure product health, understand user flows, and operate community features you choose to use.</p>
       <ul>
-        <li>The app may save session history, selected sounds, visual quality, preferences, completed sessions, and similar app activity so your experience feels consistent when you return.</li>
-        <li>We may use simple usage information, such as session starts, pauses, completions, screen views, ratings, likes, and feature requests, to understand what is working and improve the app.</li>
-        <li>Please do not place sensitive personal details inside scene names, feature requests, creator names, tags, or public descriptions.</li>
+        <li>Authenticate you and restore your signed-in profile.</li>
+        <li>Save and restore scenes, mixer settings, ZenHeart preferences, history, and anti-spam local state.</li>
+        <li>Measure app stability, performance, feature usage, and completion flows so the app can improve over time.</li>
+        <li>Operate community content, moderation signals, creator-interest submissions, and user-request workflows.</li>
+        <li>Limit or measure advertising for users who are eligible to see ads.</li>
       </ul>
     </section>
 
-    <section id="cloud">
-      <div class="section-title"><span class="mark"></span><h2>Cloud, Community, and Sharing</h2></div>
+    <section id="providers">
+      <div class="section-title"><span class="mark"></span><h2>Service Providers and Cloud Infrastructure</h2></div>
+      <p>FullMind uses third-party infrastructure and SDKs to operate cloud-backed features on Apple devices.</p>
       <ul>
-        <li>When you publish or load community scenes, voices, QR links, or shared content, the app uses secure app services to store and retrieve that content.</li>
-        <li>Shared content can include the creator name you chose, scene or voice names, tags, descriptions, artwork references, usage counts, likes, bookmarks, and similar public or community-facing details.</li>
-        <li>Images used for QR styling are handled on your device for that flow. A final share image is saved or shared only when you choose to do that.</li>
+        <li>Supabase is used for authentication, profile records, Premium-related account state, community content records, likes, reports, and other cloud-backed app data.</li>
+        <li>Firebase Analytics, Crashlytics, and Performance Monitoring are used to measure product usage, diagnose failures, and understand runtime performance.</li>
+        <li>Google Mobile Ads SDK is integrated for ad-supported experiences shown only to eligible users.</li>
       </ul>
+    </section>
+
+    <section id="ads">
+      <div class="section-title"><span class="mark"></span><h2>Ads and Identifiers</h2></div>
+      <p>If your account is eligible to see ads, ad-related SDKs may process ad request context and device-related signals to request, limit, or measure ads.</p>
+      <p>This can include device identifiers such as IDFV and, where available under platform permissions and SDK behavior, advertising-related identifiers. Ad availability can also vary by region, consent state, fill, and account eligibility.</p>
+      <ul>
+        <li>Premium users and legacy-trial users are intended to avoid ad-supported surfaces.</li>
+        <li>Ad-related flows may process runtime information such as screen size, placement, and request environment.</li>
+      </ul>
+    </section>
+
+    <section id="local">
+      <div class="section-title"><span class="mark"></span><h2>Local Storage</h2></div>
+      <p>A substantial part of FullMind stays on your device so that playback feels fast and personal.</p>
+      <p>Local storage can include selected scenes, saved presets, anti-repeat or anti-spam flags, session history buckets, export names, onboarding state, admin-mode state, and other preference data needed for the app experience.</p>
     </section>
 
     <section id="premium">
-      <div class="section-title"><span class="mark"></span><h2>Payments and Premium</h2></div>
-      <ul>
-        <li>Premium plans and trials are handled through Google Play Billing. Google processes payment details.</li>
-        <li>The app receives purchase status so it can unlock or restore premium features.</li>
-        <li>We may keep plan status, trial status, and purchase-related app records so premium access works across sessions.</li>
-      </ul>
+      <div class="section-title"><span class="mark"></span><h2>Premium, Billing, and Trials</h2></div>
+      <p>On Apple platforms, subscriptions, renewals, cancellations, and payment processing are handled by Apple through the App Store.</p>
+      <p>FullMind receives entitlement-related information needed to unlock or restore Premium access, validate purchase state, and determine whether a user should see ad-supported or Premium-only experiences.</p>
     </section>
 
-    <section id="bluetooth">
-      <div class="section-title"><span class="mark"></span><h2>Bluetooth and Nearby Devices</h2></div>
+    <section id="community">
+      <div class="section-title"><span class="mark"></span><h2>Community Content, Reports, and Suggestions</h2></div>
+      <p>If you use community, creator-interest, report, or suggestion features, the information you submit may be stored and reviewed to operate the service, support moderation, and improve future product decisions.</p>
       <ul>
-        <li>Bluetooth is used only when you use supported PandaZen device features, such as pairing, reconnecting, sending session cues, or changing device settings.</li>
-        <li>The app may remember a previously paired device so reconnecting feels effortless. You can disconnect or forget a device from app settings.</li>
-        <li>On some Android versions, the system requires location permission for Bluetooth scanning. The app uses that permission for device discovery, not to track where you are.</li>
-      </ul>
-    </section>
-
-    <section id="permissions">
-      <div class="section-title"><span class="mark"></span><h2>Permissions</h2></div>
-      <ul>
-        <li>Internet access is used for sign-in, community content, sync, billing status, feature requests, and app services.</li>
-        <li>Bluetooth permissions are used for nearby supported devices when you choose to use those features.</li>
-        <li>Storage or gallery actions happen when you choose to save or share generated images.</li>
+        <li>Do not include sensitive personal information in creator names, scene names, issue reports, feature requests, or other text fields.</li>
+        <li>Shared community metadata can include titles, descriptions, tags, counters, likes, or other ranking signals relevant to discovery and moderation.</li>
       </ul>
     </section>
 
     <section id="choices">
       <div class="section-title"><span class="mark"></span><h2>Your Choices</h2></div>
+      <p>You can choose whether to sign in, whether to use cloud-backed community features, and whether to submit issue reports or feature requests.</p>
+      <p>You can also delete your account from inside the app. Some records may still be retained where needed for billing support, fraud prevention, legal compliance, security, or basic service integrity.</p>
       <ul>
-        <li>You can use core meditation features without publishing creator content.</li>
-        <li>You can edit your monk profile name, avoid sharing public content, disconnect Bluetooth devices, and remove local presets or settings from inside the app where those controls are available.</li>
-        <li>You can uninstall the app to remove its local app data from your device. Some cloud records may remain when they are needed for account, billing, creator, safety, or service records.</li>
+        <li>You can uninstall the app to remove local app data stored on that device.</li>
+        <li>You can request account deletion through the in-app Delete Account flow.</li>
+        <li>You can avoid public-facing community actions by not sharing content or interacting with optional community tools.</li>
       </ul>
     </section>
 
     <section id="security">
-      <div class="section-title"><span class="mark"></span><h2>Security</h2></div>
-      <p>We use reasonable safeguards for a mobile app, including private app storage on your device and secure connections for app services where supported.</p>
-      <p>No app or online service can promise perfect security, so please avoid sharing sensitive personal information in public or creator-facing fields.</p>
+      <div class="section-title"><span class="mark"></span><h2>Security and Retention</h2></div>
+      <p>We use reasonable safeguards for a mobile app, including app-private storage where supported and secure network transport for service communication.</p>
+      <p>No mobile or online service can promise perfect security. Please avoid sending sensitive information through app text fields unless absolutely necessary.</p>
     </section>
 
     <section id="children">
       <div class="section-title"><span class="mark"></span><h2>Children</h2></div>
-      <p>FullMind: Sleep &amp; Meditation is not made as a dedicated app for children under 13. Please do not submit children's personal information through creator names, scene descriptions, tags, or feature requests.</p>
+      <p>FullMind is not designed as a dedicated app for children under 13.</p>
     </section>
 
-    <section id="creator">
-      <div class="section-title"><span class="mark"></span><h2>Creator Policy</h2></div>
-      <ul>
-        <li>If you create, upload, publish, or share scenes, voices, images, names, tags, or descriptions, you are responsible for making sure you have the right to use and share that content.</li>
-        <li>Creator content may be shown to other users with your creator name, public metadata, popularity signals, session counts, likes, bookmarks, and similar activity.</li>
-        <li>We may review, hide, remove, limit, or update creator content if it appears unsafe, misleading, infringing, abusive, spammy, or harmful to the app experience.</li>
-        <li>Creator features may record how content performs so we can rank content, support creator tools, improve discovery, and build future rewards or monetization features.</li>
-      </ul>
-    </section>
-
-    <section id="contact">
+    <section id="changes">
       <div class="section-title"><span class="mark"></span><h2>Changes and Contact</h2></div>
-      <p>We may update this policy as the app grows. The date at the top shows the latest version.</p>
-      <p>For privacy questions or requests, use the support or feedback options provided by FullMind: Sleep &amp; Meditation or PandaZen.</p>
+      <p>We may update this Privacy Policy as FullMind evolves. The effective date above reflects the latest version.</p>
+      <p>For privacy or data questions, use the in-app Report Issue or Suggest Feature paths, or the hosted legal page contact route once published.</p>
     </section>
 
     <footer>
-      FullMind: Sleep &amp; Meditation Privacy Policy<br />
+      FullMind Privacy Policy<br />
       PandaZen
     </footer>
   </main>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   <script>
     const splash = document.getElementById("splash");
@@ -446,6 +540,7 @@
       splash.classList.add("hidden");
       document.body.classList.remove("loading");
     };
+
     const fallbackTimer = setTimeout(() => {
       if (!splash.classList.contains("has-lottie")) {
         splash.classList.add("show-fallback");
@@ -460,11 +555,13 @@
         autoplay: true,
         path: "FullMind_Splash_Lottie.json"
       });
+
       animation.addEventListener("data_ready", () => {
         clearTimeout(fallbackTimer);
         splash.classList.add("has-lottie");
         splash.classList.remove("show-fallback");
       });
+
       animation.addEventListener("data_failed", () => splash.classList.remove("has-lottie"));
       animation.addEventListener("complete", finishSplash);
       setTimeout(finishSplash, 5200);
